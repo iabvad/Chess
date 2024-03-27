@@ -14,7 +14,6 @@ public class Rook extends Piece{
     @Override
     public boolean canMove ( int row, int col ) {
         if(this.row == row){
-            if(isBlack){
                 if(col > this.col){
                     for(int i = this.col; i < col; i++){
                         if(Board.board[row][i] != null){
@@ -28,17 +27,23 @@ public class Rook extends Piece{
                         }
                     }
                 }
-            } else{
-
             }
-        } else if(this.col == col){
-            if(isBlack){
-
-            } else{
-
+        else if(this.col == col){
+            if(row > this.row){
+                for(int i = this.row; i < row; i++){
+                    if(Board.board[col][i] != null){
+                        return false;
+                    }
+                }
+            } else if(row < this.row){
+                for(int i = this.row; i >= row; i--){
+                    if(Board.board[col][i] != null){
+                        return false;
+                    }
+                }
             }
         }
-        return false;
+        return true;
     }
 
     public String getSymbol(){
