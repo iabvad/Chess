@@ -38,7 +38,7 @@ public abstract class Piece {
                 for (int x = 0; x < Board.board[y].length; x++) {
                     if (Board.board[y][x] == this) {
                         Board.board[y][x] = null;
-                        return; 
+                        return;
                     }
                 }
             }
