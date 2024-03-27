@@ -34,6 +34,15 @@ public abstract class Piece {
 
 
         public void takePiece() {
-            Board.board.remove(this);
+            for (int y = 0; y < Board.board.length; y++) {
+                for (int x = 0; x < Board.board[y].length; x++) {
+                    if (Board.board[y][x] == this) {
+                        Board.board[y][x] = null;
+                        return; 
+                    }
+                }
+            }
         }
-}
+    }
+
+
