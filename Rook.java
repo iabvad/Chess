@@ -13,6 +13,15 @@ public class Rook extends Piece{
 
     @Override
     public boolean canMove ( int row, int col ) {
+        if(this.row == row || this.col == col){
+            if(isBlack){
+                for(int i = 0; i < row; i++){
+                        
+                }
+            } else{
+
+            }
+        }
         return false;
     }
 

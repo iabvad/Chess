@@ -22,7 +22,7 @@ public class Pawn extends Piece{
                 }
                 return true;
             }
-        } else if (this.isBlack) {
+        } else if (isBlack) {
             if (Board.board[ newRow ][ newCol ] == null && this.col == newCol && newRow - this.row <= 2) {
                 if(newRow - this.row == 2){
                     if(Board.board[newRow - 1][newCol] == null){
