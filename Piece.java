@@ -18,7 +18,7 @@ public abstract class Piece {
     public void move(int newRow, int newCol) {
         if(canMove(newRow, newCol)){
             for (Piece[] p : Board.board) {
-                for(Piece d : Board.board[p]){
+                for(Piece d : p){
                     if (d.row == row && d.col == col) {
                         d.takePiece();
                 }

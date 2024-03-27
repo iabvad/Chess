@@ -39,7 +39,7 @@ public class Board {
         Pawn wP6 = new Pawn(false, 1,5);
         Pawn wP7 = new Pawn(false, 1,6);
         Pawn wP8 = new Pawn(false, 1,7);
-        board = {{bR1, bH1 , bB1, bQ1, bK1, bB2, bH2, bR2},
+        board = new Piece[][]{{bR1, bH1 , bB1, bQ1, bK1, bB2, bH2, bR2},
                 {bP1, bP2, bP3, bP4, bP5, bP6, bP7, bP8},
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},

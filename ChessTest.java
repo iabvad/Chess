@@ -3,7 +3,6 @@ import org.junit.Test;
 
 public class ChessTest {
 
-    @Test
 
 
 }
