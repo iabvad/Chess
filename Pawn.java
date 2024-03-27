@@ -11,25 +11,17 @@ public class Pawn extends Piece{
     }
 
     public boolean canMove(int newRow, int newCol) {
-        if (!this.isBlack) {
+        if (!isBlack) {
             if (Board.board[ newRow ][ newCol ] == null && this.col == newCol && this.row - newRow <= 2) {
                 if(this.row - newRow == 2){
-                    if(Board.board[newRow + 1][newCol] == null){
-                        return true;
-                    } else{
-                        return false;
-                    }
+                    return Board.board[ newRow + 1 ][ newCol ] == null;
                 }
                 return true;
             }
-        } else if (isBlack) {
+        } else {
             if (Board.board[ newRow ][ newCol ] == null && this.col == newCol && newRow - this.row <= 2) {
                 if(newRow - this.row == 2){
-                    if(Board.board[newRow - 1][newCol] == null){
-                        return true;
-                    } else{
-                        return false;
-                    }
+                    return Board.board[ newRow - 1 ][ newCol ] == null;
                 }
                 return true;
             }
@@ -38,7 +30,7 @@ public class Pawn extends Piece{
 
         }
 
-
+        return false;
     }
 
     public String getSymbol(){
