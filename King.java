@@ -12,7 +12,16 @@ public class King extends Piece{
     }
 
     @Override
-    public boolean canMove ( int row, int col ) {
+    public boolean canMove ( int newRow, int newCol ) {
+        int rowDiff = Math.abs(newRow - this.row);
+        int colDiff = Math.abs(newCol - this.col);
+
+        if (rowDiff <= 1 && colDiff <= 1) {
+            Piece pieceAtNewPosition = Board.board[newRow][newCol];
+            if (pieceAtNewPosition == null || pieceAtNewPosition.isBlack != this.isBlack) {
+                return true;
+            }
+        }
         return false;
     }
 
