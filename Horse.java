@@ -12,7 +12,10 @@ public class Horse extends Piece{
     }
 
     public boolean canMove(int newRow, int newCol){
-        return true;
+        return (newRow == row - 2 && newCol == col + 1) || (newRow == row - 2 && newCol == col - 1) ||
+                (newRow == row - 1 && newCol == col + 2) || (newRow == row - 1 && newCol == col - 2) ||
+                (newRow == row + 1 && newCol == col + 2) || (newRow == row + 1 && newCol == col - 2) ||
+                (newRow == row + 2 && newCol == col + 1) || (newRow == row + 2 && newCol == col - 1);
     }
 
     public String getSymbol(){
