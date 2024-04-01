@@ -1,3 +1,3 @@
 # Chess
 
-this c
+this is CHESS 
