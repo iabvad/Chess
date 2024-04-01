@@ -28,4 +28,17 @@ public class King extends Piece{
     public String getSymbol(){
         return this.symbol;
     }
+    public boolean isInCheck() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                Piece piece = Board.board[i][j];
+                if (piece != null && piece.isBlack != this.isBlack) {
+                    if (piece.canMove(row, col)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false; 
+    }
 }
