@@ -35,7 +35,7 @@ public class Rook extends Piece{
                         return false;
                     }
                 }
-            } else if(row < this.row){
+            } else {
                 for(int i = this.row; i >= row; i--){
                     if(Board.board[col][i] != null){
                         return false;

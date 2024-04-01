@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+
 public class Board {
     public static Piece[][] board;
 
@@ -51,13 +53,19 @@ public class Board {
     }
 
     public void showBoard(){
+        System.out.println(" ---------------------------------");
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j< 8; j++) {
-                if (board[i][j] != null) {
-                    System.out.print(board[i][j].getSymbol());
+                System.out.print (" | ");
+                if (board[ i ][ j ] != null) {
+                    System.out.print (board[ i ][ j ].getSymbol ());
+
+                } else {
+                    System.out.print (" ");
                 }
             }
-            System.out.println();
+            System.out.println(" |");
+            System.out.println(" ---------------------------------");
         }
     }
 }
