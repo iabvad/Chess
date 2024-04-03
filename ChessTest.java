@@ -3,19 +3,43 @@ import static org.junit.Assert.*;
 
 public class ChessTest {
     @Test
-public void testRookCanMoveHorizontally() {
-    Board board = new Board();
-    board.newBoard();
-    Rook rook = new Rook(true, 0, 0);
-    assertTrue(rook.canMove(0, 3)); // Horizontal move
-}
+    public void testRookCanMoveHorizontally() {
+        // Create a new board with a rook at position (0, 0)
+        Board yo = new Board();
+        yo.newBoard();
+        Rook rook = (Rook) Board.board[0][0];
+
+        // Test if the rook can move to position (0, 1)
+        assertEquals(true, rook.canMove(0, 1));
+
+        // Test if the rook can move to position (0, 7)
+        assertEquals(true, rook.canMove(0, 7));
+
+        // Test if the rook cannot move to position (1, 0)
+        assertEquals(false, rook.canMove(1, 0));
+
+        // Test if the rook cannot move to position (2, 0)
+        assertEquals(false, rook.canMove(2, 0));
+    }
 
     @Test
     public void testRookCanMoveVertically() {
-        Board board = new Board();
-        board.newBoard();
-        Rook rook = new Rook(true, 0, 0);
-        assertTrue(rook.canMove(3, 0)); // Vertical move
+        // Create a new board with a rook at position (0, 0)
+        Board yo = new Board();
+        yo.newBoard();
+        Rook rook = (Rook) Board.board[0][0];
+
+        // Test if the rook can move to position (1, 0)
+        assertEquals(true, rook.canMove(1, 0));
+
+        // Test if the rook can move to position (7, 0)
+        assertEquals(true, rook.canMove(7, 0));
+
+        // Test if the rook cannot move to position (0, 1)
+        assertEquals(false, rook.canMove(0, 1));
+
+        // Test if the rook cannot move to position (0, 2)
+        assertEquals(false, rook.canMove(0, 2));
     }
 
     @Test

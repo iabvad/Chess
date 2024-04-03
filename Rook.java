@@ -12,39 +12,35 @@ public class Rook extends Piece{
     }
 
     @Override
-    public boolean canMove ( int row, int col ) {
-        if(this.row == row){
-                if(col > this.col){
-                    for(int i = this.col; i < col; i++){
-                        if(Board.board[row][i] != null){
-                            return false;
-                        }
-                    }
-                } else if(col < this.col){
-                    for(int i = this.col; i >= col; i--){
-                        if(Board.board[row][i] != null){
-                            return false;
-                        }
-                    }
+    public boolean canMove(int row, int col) {
+        // Check for horizontal movement
+        if (this.row == row && this.col != col) {
+            int start = Math.min(this.col, col);
+            int end = Math.max(this.col, col);
+            for (int i = start + 1; i < end; i++) {
+                if (Board.board[row][i] != null) {
+                    return false;
                 }
             }
-        else if(this.col == col){
-            if(row > this.row){
-                for(int i = this.row; i < row; i++){
-                    if(Board.board[col][i] != null){
-                        return false;
-                    }
-                }
-            } else {
-                for(int i = this.row; i >= row; i--){
-                    if(Board.board[col][i] != null){
-                        return false;
-                    }
-                }
-            }
+            return true;
         }
-        return true;
+        // Check for vertical movement
+        else if (this.col == col && this.row != row) {
+            int start = Math.min(this.row, row);
+            int end = Math.max(this.row, row);
+            for (int i = start + 1; i < end; i++) {
+                if (Board.board[i][col] != null) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        // No movement detected
+        return false;
     }
+
+
+
 
     public String getSymbol(){
         return this.symbol;

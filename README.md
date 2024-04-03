@@ -1,3 +1,4 @@
-# Chess
+# Game of Chess
 
-jhj
+Description: Chess is a game between 
+

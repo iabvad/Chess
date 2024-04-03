@@ -16,19 +16,21 @@ public abstract class Piece {
     public abstract String getSymbol();
 
     public void move(int newRow, int newCol) {
-        if(canMove(newRow, newCol)){
-            for (Piece[] p : Board.board) {
-                for(Piece d : p){
-                    if (d.row == row && d.col == col) {
-                        d.takePiece();
-                }
-
+        if (canMove(newRow, newCol)) {
+            Piece destinationPiece = Board.board[newRow][newCol];
+            if (destinationPiece != null) {
+                if (destinationPiece.isBlack != this.isBlack) {
+                    destinationPiece.takePiece();
+                } else {
+                    return;
                 }
             }
+
+            Board.board[row][col] = null;
+            Board.board[newRow][newCol] = this;
             this.row = newRow;
             this.col = newCol;
         }
-
     }
 
 
