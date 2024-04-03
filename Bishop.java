@@ -12,7 +12,7 @@ public class Bishop extends Piece{
     }
 
     @Override
-    public boolean canMove ( int newRow, int newCol ) {
+    public boolean canMove(int newRow, int newCol) {
         int rowDiff = Math.abs(newRow - this.row);
         int colDiff = Math.abs(newCol - this.col);
 
@@ -21,6 +21,7 @@ public class Bishop extends Piece{
             int colIncrement = (newCol > this.col) ? 1 : -1;
             int currentRow = this.row + rowIncrement;
             int currentCol = this.col + colIncrement;
+
             while (currentRow != newRow && currentCol != newCol) {
                 if (Board.board[currentRow][currentCol] != null) {
                     return false;
@@ -32,6 +33,7 @@ public class Bishop extends Piece{
         }
         return false;
     }
+
 
     public String getSymbol(){
         return this.symbol;
