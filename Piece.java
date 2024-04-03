@@ -31,6 +31,9 @@ public abstract class Piece {
             this.row = newRow;
             this.col = newCol;
         }
+        else{
+            System.out.println("Invalid Move! Retry");
+        }
     }
 
 

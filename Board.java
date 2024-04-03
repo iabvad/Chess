@@ -67,5 +67,6 @@ public class Board {
             System.out.println(" |");
             System.out.println(" ---------------------------------");
         }
+        System.out.println(" ");
     }
 }

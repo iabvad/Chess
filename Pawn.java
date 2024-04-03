@@ -43,7 +43,6 @@ public class Pawn extends Piece{
                     return true;
                 }
             }
-            System.out.println ("Invalid Move! Retry");
             return false;
 
         }
