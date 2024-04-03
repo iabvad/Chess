@@ -13,26 +13,33 @@ public class Rook extends Piece {
 
     @Override
     public boolean canMove(int newRow, int newCol) {
-        if (newRow == this.row || newCol == this.col) {
-            // Rooks can move along rows or columns
-            // Check if there are any pieces in the way
-            int minRow = Math.min(this.row, newRow);
-            int maxRow = Math.max(this.row, newRow);
-            int minCol = Math.min(this.col, newCol);
-            int maxCol = Math.max(this.col, newCol);
-
-            // Check for obstruction along rows
-            if (newRow == this.row) {
-                for (int c = minCol + 1; c < maxCol; c++) {
-                    if (Board.board[newRow][c] != null) {
+        if (newRow == this.row) {
+            int distance = Math.abs(newCol - this.col);
+            if (newCol < this.col) {
+                for (int i = 1; i < distance; i++) {
+                    if (Board.board[this.row][this.col - i] != null) {
+                        return false; // There's a piece in the way
+                    }
+                }
+            } else {
+                for (int i = 1; i <= distance; i++) {
+                    if (Board.board[this.row][this.col + i] != null) {
                         return false; // There's a piece in the way
                     }
                 }
             }
-            // Check for obstruction along columns
-            if (newCol == this.col) {
-                for (int r = minRow + 1; r < maxRow; r++) {
-                    if (Board.board[r][newCol] != null) {
+            return true; // No pieces in the way
+        } else if (newCol == this.col) {
+            int distance = Math.abs(newRow - this.row);
+            if (newRow < this.row) {
+                for (int i = 1; i < distance; i++) {
+                    if (Board.board[this.row - i][this.col] != null) {
+                        return false; // There's a piece in the way
+                    }
+                }
+            } else {
+                for (int i = 1; i <= distance; i++) {
+                    if (Board.board[this.row + i][this.col] != null) {
                         return false; // There's a piece in the way
                     }
                 }
@@ -41,7 +48,6 @@ public class Rook extends Piece {
         }
         return false; // Rook can't move diagonally
     }
-
     @Override
     public String getSymbol() {
         return this.symbol;

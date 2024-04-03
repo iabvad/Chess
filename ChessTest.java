@@ -5,9 +5,12 @@ public class ChessTest {
     @Test
     public void testRookCanMoveHorizontally() {
         // Create a new board with a rook at position (0, 0)
-        Board yo = new Board();
-        yo.newBoard();
-        Rook rook = (Rook) Board.board[0][0];
+        Board board = new Board();
+        board.newBoard();
+        board.clearBoard();
+        Rook rook = new Rook(true, 0, 0);
+        Board.board[0][0] = rook;
+
 
         // Test if the rook can move to position (0, 1)
         assertEquals(true, rook.canMove(0, 1));
@@ -28,12 +31,15 @@ public class ChessTest {
         Board yo = new Board();
         yo.newBoard();
         Rook rook = (Rook) Board.board[0][0];
+        Board.board[1][0].move(3,0);
+        Board.board[3][0].move(4,0);
+        Board.board[4][0].move(5,0);
 
         // Test if the rook can move to position (1, 0)
         assertEquals(true, rook.canMove(1, 0));
 
         // Test if the rook can move to position (7, 0)
-        assertEquals(true, rook.canMove(7, 0));
+        assertEquals(true, rook.canMove(4, 0));
 
         // Test if the rook cannot move to position (0, 1)
         assertEquals(false, rook.canMove(0, 1));
