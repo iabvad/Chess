@@ -22,7 +22,7 @@ public class Bishop extends Piece{
             int currentRow = this.row + rowIncrement;
             int currentCol = this.col + colIncrement;
 
-            while (currentRow != newRow && currentCol != newCol) {
+            while (currentRow != newRow || currentCol != newCol) {
                 if (Board.board[currentRow][currentCol] != null) {
                     return false;
                 }
