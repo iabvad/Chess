@@ -13,15 +13,6 @@ public class Bishop extends Piece{
 
     @Override
     public boolean canMove(int newRow, int newCol) {
-
-
-        int rowDistance = Math.abs(newRow - row);
-        int colDistance = Math.abs(newCol - col);
-
-        // Bishops can only move diagonally
-        if (rowDistance != colDistance) {
-            return false;
-
         int rowDiff = Math.abs(newRow - this.row);
         int colDiff = Math.abs(newCol - this.col);
 
@@ -39,24 +30,8 @@ public class Bishop extends Piece{
                 currentCol += colIncrement;
             }
             return true;
-
         }
-
-        int rowDirection = (newRow - row) > 0 ? 1 : -1;
-        int colDirection = (newCol - col) > 0 ? 1 : -1;
-
-        int currentRow = row + rowDirection;
-        int currentCol = col + colDirection;
-
-        while (currentRow != newRow && currentCol != newCol) {
-            if (Board.board[currentRow][currentCol] != null) {
-                return false; // There's a piece in the way
-            }
-            currentRow += rowDirection;
-            currentCol += colDirection;
-        }
-
-        return true;
+        return false;
     }
 
 

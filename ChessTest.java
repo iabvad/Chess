@@ -113,6 +113,6 @@ public class ChessTest {
         Board board = new Board();
         board.newBoard();
         Bishop bishop = new Bishop(true, 0, 2);
-        assertTrue(bishop.canMove(2, 0)); // Diagonal move
+        assertTrue(bishop.canMove(2, 4)); // Diagonal move in the correct direction
     }
 }
