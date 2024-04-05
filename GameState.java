@@ -65,7 +65,7 @@ public class GameState {
 
     // Method to make a move on the board
     private boolean makeMove(int srcRow, int srcCol, int destRow, int destCol) {
-        Piece srcPiece = board.board[srcRow][srcCol];
+        Piece srcPiece = Board.board[srcRow][srcCol];
 
         // Check if the source position contains a piece
         if (srcPiece == null) {
