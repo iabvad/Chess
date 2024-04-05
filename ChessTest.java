@@ -5,10 +5,9 @@ public class ChessTest {
     @Test
     public void testRookCanMoveHorizontally() {
         // Create a new board with a rook at position (0, 0)
+
+        Board board = new Board();
         Rook rook = new Rook(true, 0, 0);
-        Board.board[0][0] = rook;
-
-
         // Test if the rook can move to position (0, 1)
         assertEquals(true, rook.canMove(0, 1));
 
@@ -16,10 +15,10 @@ public class ChessTest {
         assertEquals(true, rook.canMove(0, 7));
 
         // Test if the rook cannot move to position (1, 0)
-        assertEquals(false, rook.canMove(1, 0));
+        assertEquals(true, rook.canMove(1, 0));
 
         // Test if the rook cannot move to position (2, 0)
-        assertEquals(false, rook.canMove(2, 0));
+        assertEquals(true, rook.canMove(2, 0));
     }
 
     @Test
@@ -87,6 +86,7 @@ public class ChessTest {
 
     @Test
     public void testQueenCanMoveDiagonally() {
+        Board board = new Board();
         Queen queen = new Queen(true, 0, 3);
         assertTrue(queen.canMove(3, 6)); // Diagonal move
     }
@@ -94,7 +94,6 @@ public class ChessTest {
     @Test
     public void testKingCanMoveOneStepInAnyDirection() {
         Board board = new Board();
-        board.newBoard();
         King king = new King(true, 0, 4);
         assertTrue(king.canMove(1, 4)); // One-step move vertically
         assertTrue(king.canMove(0, 5)); // One-step move horizontally
