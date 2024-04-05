@@ -7,6 +7,9 @@ public class Board {
         board = new Piece[8][8];
     }
 
+    public void clearBoard(){
+        board = new Piece[8][8];
+    }
     public void newBoard(){
         Rook bR1 = new Rook(true, 0,0);
         Horse bH1 = new Horse(true, 0,1);
