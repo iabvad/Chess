@@ -18,7 +18,7 @@ public class King extends Piece{
 
         if (rowDiff <= 1 && colDiff <= 1) {
             Piece pieceAtNewPosition = Board.board[newRow][newCol];
-            if (pieceAtNewPosition == null || pieceAtNewPosition.isBlack != this.isBlack) {
+            if (pieceAtNewPosition == null || pieceAtNewPosition.isBlack != this.isBlack ) {
                 return true;
             }
         }

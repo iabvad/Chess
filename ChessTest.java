@@ -5,9 +5,6 @@ public class ChessTest {
     @Test
     public void testRookCanMoveHorizontally() {
         // Create a new board with a rook at position (0, 0)
-        Board board = new Board();
-        board.newBoard();
-        board.clearBoard();
         Rook rook = new Rook(true, 0, 0);
         Board.board[0][0] = rook;
 
@@ -90,8 +87,6 @@ public class ChessTest {
 
     @Test
     public void testQueenCanMoveDiagonally() {
-        Board board = new Board();
-        board.newBoard();
         Queen queen = new Queen(true, 0, 3);
         assertTrue(queen.canMove(3, 6)); // Diagonal move
     }
@@ -117,7 +112,6 @@ public class ChessTest {
     @Test
     public void testBishopCanMoveDiagonally() {
         Board board = new Board();
-        board.newBoard();
         Bishop bishop = new Bishop(true, 0, 2);
         assertTrue(bishop.canMove(2, 0)); // Diagonal move
     }
