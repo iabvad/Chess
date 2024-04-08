@@ -20,6 +20,7 @@ public class GameState {
     public void playGame() {
         Scanner scanner = new Scanner(System.in);
 
+
         while (true) {
             // Display current player's turn
             if (isBlackTurn) {
