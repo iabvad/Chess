@@ -42,14 +42,57 @@ public class GameState {
             String srcPos = moveParts[0];
             String destPos = moveParts[1];
 
-            // Convert algebraic notation to row and column indices
-            int srcRow = 8 - Character.getNumericValue(srcPos.charAt(1));
-            int srcCol = srcPos.charAt(0) - 'a';
-            int destRow = 8 - Character.getNumericValue(destPos.charAt(1));
-            int destCol = destPos.charAt(0) - 'a';
+            int currentCol = 0;
+            int currentRow;
+
+
+            int desiredCol = 0;
+            int desiredRow;
+
+
+            if(srcPos.charAt(0) == 'a'){
+                currentCol = 0;
+            } else if(srcPos.charAt(0) == 'b'){
+                currentCol = 1;
+            }else if(srcPos.charAt(0) == 'c'){
+                currentCol = 2;
+            }else if(srcPos.charAt(0) == 'd'){
+                currentCol = 3;
+            }else if(srcPos.charAt(0) == 'e'){
+                currentCol = 4;
+            }else if(srcPos.charAt(0) == 'f'){
+                currentCol = 5;
+            }else if(srcPos.charAt(0) == 'g'){
+                currentCol = 6;
+            }else if(srcPos.charAt(0) == 'h'){
+                currentCol = 7;
+            }
+
+            currentRow = srcPos.charAt(1);
+
+
+            if(destPos.charAt(0) == 'a'){
+                desiredCol = 0;
+            } else if(destPos.charAt(0) == 'b'){
+                desiredCol = 1;
+            }else if(destPos.charAt(0) == 'c'){
+                desiredCol = 2;
+            }else if(destPos.charAt(0) == 'd'){
+                desiredCol = 3;
+            }else if(destPos.charAt(0) == 'e'){
+                desiredCol = 4;
+            }else if(destPos.charAt(0) == 'f'){
+                desiredCol = 5;
+            }else if(destPos.charAt(0) == 'g'){
+                desiredCol = 6;
+            }else if(destPos.charAt(0) == 'h'){
+                desiredCol = 7;
+            }
+
+            desiredRow = destPos.charAt(1);
 
             // Validate and make the move
-            if (!makeMove(srcRow, srcCol, destRow, destCol)) {
+            if (!makeMove(currentRow, currentCol, desiredRow, desiredCol)) {
                 System.out.println("Invalid move. Please try again.");
                 continue;
             }
