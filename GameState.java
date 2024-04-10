@@ -70,7 +70,6 @@ public class GameState {
 
             currentRow = srcPos.charAt(1) - 1;
 
-
             if(destPos.charAt(0) == 'a'){
                 desiredCol = 0;
             } else if(destPos.charAt(0) == 'b'){
@@ -94,6 +93,7 @@ public class GameState {
             // Validate and make the move
             if (!makeMove(currentRow, currentCol, desiredRow, desiredCol)) {
                 System.out.println("Invalid move. Please try again.");
+                continue;
             }
 
             // Toggle player turn
