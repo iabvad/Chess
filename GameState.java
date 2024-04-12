@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class GameState {
 
     private Board board;
@@ -19,7 +20,6 @@ public class GameState {
     // Main method to run the game
     public void playGame() {
         Scanner scanner = new Scanner(System.in);
-
 
         while (true) {
             // Display current player's turn
@@ -45,10 +45,8 @@ public class GameState {
             int currentCol = 0;
             int currentRow;
 
-
             int desiredCol = 0;
             int desiredRow;
-
 
             if(srcPos.charAt(0) == 'a'){
                 currentCol = 0;
@@ -68,7 +66,7 @@ public class GameState {
                 currentCol = 7;
             }
 
-            currentRow = srcPos.charAt(1) - 1;
+            currentRow = srcPos.charAt(1) - '1';
 
             if(destPos.charAt(0) == 'a'){
                 desiredCol = 0;
@@ -88,7 +86,7 @@ public class GameState {
                 desiredCol = 7;
             }
 
-            desiredRow = destPos.charAt(1) - 1;
+            desiredRow = destPos.charAt(1) - '1';
 
             // Validate and make the move
             if (!makeMove(currentRow, currentCol, desiredRow, desiredCol)) {
@@ -136,4 +134,3 @@ public class GameState {
         game.playGame();
     }
 }
-
