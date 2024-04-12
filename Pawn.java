@@ -3,10 +3,10 @@ public class Pawn extends Piece{
     private final String symbol;
     public Pawn(boolean isBlack, int row, int col){
         super(isBlack, row, col);
-        if(!this.isBlack) {
-            this.symbol = "♙";
-        } else {
+        if(this.isBlack) {
             this.symbol = "♟";
+        } else {
+            this.symbol = "♙";
         }
     }
 
