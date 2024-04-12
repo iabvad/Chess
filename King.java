@@ -4,7 +4,7 @@ public class King extends Piece{
 
     public King(boolean isBlack, int row, int col){
         super(isBlack, row, col);
-        if(this.isBlack) {
+        if(!this.isBlack) {
             this.symbol = "♔";
         } else {
             this.symbol = "♚";

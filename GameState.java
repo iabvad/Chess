@@ -66,7 +66,7 @@ public class GameState {
                 currentCol = 7;
             }
 
-            currentRow = srcPos.charAt(1) - '1';
+            currentRow = '8' - srcPos.charAt(1);
 
             if(destPos.charAt(0) == 'a'){
                 desiredCol = 0;
@@ -86,44 +86,42 @@ public class GameState {
                 desiredCol = 7;
             }
 
-            desiredRow = destPos.charAt(1) - '1';
+            desiredRow ='8' - destPos.charAt(1);
 
-            // Validate and make the move
+
             if (!makeMove(currentRow, currentCol, desiredRow, desiredCol)) {
                 System.out.println("Invalid move. Please try again.");
                 continue;
             }
 
-            // Toggle player turn
+
             isBlackTurn = !isBlackTurn;
 
-            // Display updated board
+
             board.showBoard();
 
             // Add logic for checkmate, stalemate, etc.
         }
     }
 
-    // Method to make a move on the board
+
     private boolean makeMove(int currentRow, int currentCol, int newRow, int newCol) {
         Piece srcPiece = Board.board[currentRow][currentCol];
 
-        // Check if the source position contains a piece
         if (srcPiece == null) {
             return false;
         }
 
-        // Check if it's the correct player's turn
-        if (srcPiece.isBlack != isBlackTurn) {
+
+        if (srcPiece.isBlack == isBlackTurn) {
             return false;
         }
 
-        // Check if the move is valid for the piece
+
         if (!srcPiece.canMove(newRow, newCol)) {
             return false;
         }
 
-        // Move the piece
         srcPiece.move(newRow, newCol);
 
         return true;
