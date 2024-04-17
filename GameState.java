@@ -3,37 +3,35 @@ import java.util.Scanner;
 public class GameState {
 
     private Board board;
-    private boolean isBlackTurn; // Flag to track player turns
+    private boolean isBlackTurn;
 
     public GameState() {
         board = new Board();
-        isBlackTurn = false; // Assuming white starts first
+        isBlackTurn = false;
         startNewGame();
     }
 
-    // Start a new game by initializing the board and showing it
+
     private void startNewGame() {
         board.newBoard();
         board.showBoard();
     }
 
-    // Main method to run the game
     public void playGame() {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            // Display current player's turn
+
             if (isBlackTurn) {
                 System.out.println("Black's Turn");
             } else {
                 System.out.println("White's Turn");
             }
 
-            // Get user input for move
+
             System.out.print("Enter move (e.g., 'a2 a4'): ");
             String move = scanner.nextLine();
 
-            // Parse user input to get source and destination positions
             String[] moveParts = move.split(" ");
             if (moveParts.length != 2) {
                 System.out.println("Invalid move format. Please try again.");
@@ -66,7 +64,7 @@ public class GameState {
                 currentCol = 7;
             }
 
-            currentRow = '8' - srcPos.charAt(1);
+            currentRow = 8 - (srcPos.charAt(1) - '0');
 
             if(destPos.charAt(0) == 'a'){
                 desiredCol = 0;
@@ -86,7 +84,7 @@ public class GameState {
                 desiredCol = 7;
             }
 
-            desiredRow ='8' - destPos.charAt(1);
+            desiredRow = 8 - (destPos.charAt(1) - '0');
 
 
             if (!makeMove(currentRow, currentCol, desiredRow, desiredCol)) {
