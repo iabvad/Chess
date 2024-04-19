@@ -21,7 +21,6 @@ public class GameState {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-
             if (isBlackTurn) {
                 System.out.println("Black's Turn");
             } else {
@@ -98,7 +97,6 @@ public class GameState {
 
             board.showBoard();
 
-            // Add logic for checkmate, stalemate, etc.
         }
     }
 
@@ -110,11 +108,9 @@ public class GameState {
             return false;
         }
 
-
         if (srcPiece.isBlack == isBlackTurn) {
             return false;
         }
-
 
         if (!srcPiece.canMove(newRow, newCol)) {
             return false;
