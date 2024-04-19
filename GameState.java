@@ -108,7 +108,7 @@ public class GameState {
             return false;
         }
 
-        if (srcPiece.isBlack == isBlackTurn) {
+        if (srcPiece.isBlack != isBlackTurn) {
             return false;
         }
 
