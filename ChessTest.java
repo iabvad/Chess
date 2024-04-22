@@ -120,4 +120,37 @@ public class ChessTest {
         Bishop bishop = new Bishop(true, 0, 2);
         assertTrue(bishop.canMove(2, 4)); // Diagonal move in the correct direction
     }
+
+    @Test
+    public void testKingInCheck() {
+        Board board = new Board();
+        board.newBoard();
+        King king = new King(false,5 , 0);
+        Board.board[5][0] = king;
+        assertTrue(king.isInCheck()); // Diagonal move in the correct direction
+    }
+
+    @Test
+    public void testKingIsNotInCheck() {
+        Board board = new Board();
+        board.newBoard();
+        King king = new King(false,0 , 3);
+        Board.board[0][3] = king;
+        assertFalse(((King)Board.board[0][3]).isInCheck()); // King in check at start of game
+    }
+
+    @Test
+    public void testKingIsInCheckmate() {
+        Board board = new Board();
+        board.newBoard();
+        King king = new King(false,4 , 0);
+        Board.board[4][0] = king;
+        Queen q1 = new Queen(true,4 , 1);
+        Board.board[4][1] = q1;
+        Queen q2 = new Queen(true,3 , 0);
+        Board.board[3][0] = q2;
+        Queen q3 = new Queen(true,5 , 0);
+        Board.board[5][0] = q3;
+        assertTrue(((King)Board.board[4][0]).isCheckmate()); // King in check at start of game
+    }
 }
