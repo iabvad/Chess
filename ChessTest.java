@@ -57,6 +57,7 @@ public class ChessTest {
         Board board = new Board();
         board.newBoard();
         assertTrue(Board.board[1][0].canMove(3, 0)); // Two-step move from starting position
+        assertTrue(Board.board[6][0].canMove(4, 0)); // Two-step move from starting position
     }
 
     @Test
@@ -82,6 +83,13 @@ public class ChessTest {
         assertFalse(pawn.canMove(2, 1)); // Diagonal move without capturing
     }
 
+    @Test
+    public void testPawnCantMoveBackwards() {
+        Board board = new Board();
+        board.newBoard();
+        Board.board[1][0].move(3,0);
+        assertFalse(Board.board[3][0].canMove(2, 0)); // Backwards
+    }
     @Test
     public void testQueenCanMoveDiagonally() {
         Board board = new Board();
