@@ -46,7 +46,6 @@ public class King extends Piece {
             return false;
         }
 
-
         for (int newRow = this.row - 1; newRow <= this.row + 1; newRow++) {
             for (int newCol = this.col - 1; newCol <= this.col + 1; newCol++) {
                 if (newRow >= 0 && newRow < 8 && newCol >= 0 && newCol < 8) {
@@ -56,7 +55,6 @@ public class King extends Piece {
                 }
             }
         }
-
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
