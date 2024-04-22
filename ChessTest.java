@@ -56,16 +56,14 @@ public class ChessTest {
     public void testPawnCanMoveTwoStepsFromStartingPosition() {
         Board board = new Board();
         board.newBoard();
-        Pawn pawn = new Pawn(true, 1, 0);
-        assertTrue(pawn.canMove(3, 0)); // Two-step move from starting position
+        assertTrue(Board.board[1][0].canMove(3, 0)); // Two-step move from starting position
     }
 
     @Test
     public void testPawnCanMoveOneStep() {
         Board board = new Board();
         board.newBoard();
-        Pawn pawn = new Pawn(true, 1, 0);
-        assertTrue(pawn.canMove(2, 0)); // One-step move
+        assertTrue(Board.board[1][0].canMove(2, 0)); // One-step move
     }
 
     @Test

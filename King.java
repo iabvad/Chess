@@ -28,7 +28,7 @@ public class King extends Piece{
     public String getSymbol(){
         return this.symbol;
     }
-    public boolean isInCheck() {
+    //public boolean isInCheck() {
 
-    }
+    //}
 }
