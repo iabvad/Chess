@@ -27,12 +27,11 @@ public class King extends Piece {
         return this.symbol;
     }
 
-    boolean isInCheck ( ) {
-
+    public boolean isInCheck() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 Piece piece = Board.board[i][j];
-                if (piece != null && piece.isBlack != this.isBlack && piece.canMove(this.row, this.col)) {
+                if (piece != null && piece.isBlack != this.isBlack && piece.canMove(row, col)) {
                     return true;
                 }
             }
@@ -45,6 +44,7 @@ public class King extends Piece {
         if (!isInCheck()) {
             return false;
         }
+
 
         for (int newRow = this.row - 1; newRow <= this.row + 1; newRow++) {
             for (int newCol = this.col - 1; newCol <= this.col + 1; newCol++) {
