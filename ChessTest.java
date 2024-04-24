@@ -153,4 +153,12 @@ public class ChessTest {
         Board.board[5][0] = q3;
         //assertTrue(((King)Board.board[4][0]).isCheckmate()); // Checkmate when surrounded by queens
     }
+
+    @Test
+    public void testPawnCantTakeOwnPiece() {
+        Board board = new Board();
+        board.newBoard();
+        Board.board[1][0].move(2, 0);
+        assertFalse((Board.board[1][1].canMove(2, 0);); // Checkmate when surrounded by queens
+    }
 }
