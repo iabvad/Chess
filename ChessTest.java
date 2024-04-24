@@ -159,6 +159,6 @@ public class ChessTest {
         Board board = new Board();
         board.newBoard();
         Board.board[1][0].move(2, 0);
-        assertFalse((Board.board[1][1].canMove(2, 0);); // Checkmate when surrounded by queens
+        assertFalse((Board.board[1][1].canMove(2, 0))); // Checkmate when surrounded by queens
     }
 }
