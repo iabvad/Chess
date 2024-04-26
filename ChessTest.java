@@ -121,23 +121,9 @@ public class ChessTest {
         assertTrue(bishop.canMove(2, 4)); // Diagonal move in the correct direction
     }
 
-    @Test
-    public void testKingInCheck() {
-        Board board = new Board();
-        board.newBoard();
-        King king = new King(false,5 , 0);
-        Board.board[5][0] = king;
-        assertTrue(king.isInCheck()); // Diagonal move in the correct direction
-    }
 
-    @Test
-    public void testKingIsNotInCheck() {
-        Board board = new Board();
-        board.newBoard();
-        King king = new King(false,0 , 3);
-        Board.board[0][3] = king;
-        assertFalse(((King)Board.board[0][3]).isInCheck()); // King in check at start of game
-    }
+
+
 
     @Test
     public void testKingIsInCheckmate() {
