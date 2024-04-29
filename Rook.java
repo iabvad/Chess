@@ -13,6 +13,11 @@ public class Rook extends Piece {
 
     @Override
     public boolean canMove(int newRow, int newCol) {
+        if(Board.board[newRow][newCol] != null){
+            if(Board.board[newRow][newCol].isBlack == this.isBlack){
+                return false;
+            }
+        }
         if (newRow == this.row) {
             int distance = Math.abs(newCol - this.col);
             if (newCol < this.col) {

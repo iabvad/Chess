@@ -13,6 +13,11 @@ public class Bishop extends Piece{
 
     @Override
     public boolean canMove(int newRow, int newCol) {
+        if(Board.board[newRow][newCol] != null){
+            if(Board.board[newRow][newCol].isBlack == this.isBlack){
+                return false;
+            }
+        }
         int rowDiff = Math.abs(newRow - this.row);
         int colDiff = Math.abs(newCol - this.col);
 

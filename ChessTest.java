@@ -53,6 +53,13 @@ public class ChessTest {
     }
 
     @Test
+    public void testRookCannotTakeOwnPiece() {
+        Board board = new Board();
+        board.newBoard();
+        assertFalse(Board.board[0][0].canMove(1, 0));
+    }
+
+    @Test
     public void testPawnCanMoveTwoStepsFromStartingPosition() {
         Board board = new Board();
         board.newBoard();
@@ -84,17 +91,63 @@ public class ChessTest {
     }
 
     @Test
+    public void testPawnCannotCaptureVertically() {
+        Board board = new Board();
+        board.newBoard();
+        Pawn pawn = new Pawn(true, 1, 0);
+        Pawn pawn2 = new Pawn(false, 2, 0);
+        assertFalse(pawn.canMove(2, 0)); //  Vertical move
+    }
+    @Test
     public void testPawnCantMoveBackwards() {
         Board board = new Board();
         board.newBoard();
         Board.board[1][0].move(3,0);
         assertFalse(Board.board[3][0].canMove(2, 0)); // Backwards
     }
+
+    @Test
+    public void testPawnCantTakeOwnPiece() {
+        Board board = new Board();
+        board.newBoard();
+        Board.board[1][0].move(2, 0);
+        assertFalse((Board.board[1][1].canMove(2, 0))); // Pawn cannot be taken by own color
+    }
     @Test
     public void testQueenCanMoveDiagonally() {
         Board board = new Board();
         Queen queen = new Queen(true, 0, 3);
         assertTrue(queen.canMove(3, 6)); // Diagonal move
+    }
+
+    @Test
+    public void testQueenCanMoveHorizontally() {
+        Board board = new Board();
+        Queen queen = new Queen(true, 0, 3);
+        assertTrue(queen.canMove(0, 6)); // Horizontal move
+    }
+
+    @Test
+    public void testQueenCanMoveVertically() {
+        Board board = new Board();
+        Queen queen = new Queen(true, 0, 3);
+        assertTrue(queen.canMove(2, 3)); // Vertical move
+    }
+
+    @Test
+    public void testQueenCantPerformIllegalMoves() {
+        Board board = new Board();
+        Queen queen = new Queen(true, 0, 3);
+        assertFalse(queen.canMove(2, 2));
+        assertFalse(queen.canMove(7, 4));
+    }
+
+    @Test
+    public void testQueenCantTakeOwnPiece() {
+        Board board = new Board();
+        board.newBoard();
+        assertFalse(Board.board[0][4].canMove(1, 4));
+        assertFalse(Board.board[0][4].canMove(0, 5));
     }
 
     @Test
@@ -107,11 +160,52 @@ public class ChessTest {
     }
 
     @Test
+    public void testKingCantPerformIllegalMoves() {
+        Board board = new Board();
+        King king = new King(true, 0, 4);
+        assertFalse(king.canMove(3, 4));
+        assertFalse(king.canMove(2, 7));
+        assertFalse(king.canMove(2, 2));
+    }
+
+    @Test
+    public void testKingCantTakeOwnPiece() {
+        Board board = new Board();
+        board.newBoard();
+        assertFalse(Board.board[0][3].canMove(1, 3));
+        assertFalse(Board.board[0][3].canMove(0, 2));
+        assertFalse(Board.board[0][3].canMove(0, 4));
+    }
+
+    @Test
     public void testKnightCanMoveInLShape() {
         Board board = new Board();
         board.newBoard();
         Horse horse = new Horse(true, 0, 1);
         assertTrue(horse.canMove(2, 0)); // L-shape move
+    }
+
+    @Test
+    public void testKnightCantMoveVertically() {
+        Board board = new Board();
+        board.newBoard();
+        Horse horse = new Horse(true, 0, 1);
+        assertFalse(horse.canMove(1, 1));
+    }
+
+    @Test
+    public void testKnightCantMoveHorizontally() {
+        Board board = new Board();
+        board.newBoard();
+        Horse horse = new Horse(true, 0, 1);
+        assertFalse(horse.canMove(0, 3));
+    }
+
+    @Test
+    public void testKnightCantTakeOwnPiece() {
+        Board board = new Board();
+        board.newBoard();
+        assertFalse(Board.board[0][1].canMove(1, 3));
     }
 
     @Test
@@ -121,32 +215,26 @@ public class ChessTest {
         assertTrue(bishop.canMove(2, 4)); // Diagonal move in the correct direction
     }
 
-
-
-
-
     @Test
-    public void testKingIsInCheckmate() {
+    public void testBishopCantMoveHorizontally() {
         Board board = new Board();
-        board.newBoard();
-        King king = new King(false,4 , 0);
-        Board.board[4][0] = king;
-        Queen q1 = new Queen(true,4 , 1);
-        Board.board[4][1] = q1;
-        Queen q2 = new Queen(true,3 , 0);
-        Board.board[3][0] = q2;
-        Queen q3 = new Queen(true,5 , 0);
-        Board.board[5][0] = q3;
-        //assertTrue(((King)Board.board[4][0]).isCheckmate()); // Checkmate when surrounded by queens
+        Bishop bishop = new Bishop(true, 0, 2);
+        assertFalse(bishop.canMove(0, 4));
     }
 
     @Test
-    public void testPawnCantTakeOwnPiece() {
+    public void testBishopCanMoveVertically() {
         Board board = new Board();
-        board.newBoard();
-        Board.board[1][0].move(2, 0);
-        assertFalse((Board.board[1][1].canMove(2, 0))); // Pawn cannot be taken by own color
+        Bishop bishop = new Bishop(true, 0, 2);
+        assertFalse(bishop.canMove(3, 2));
     }
 
+    @Test
+    public void testBishopCantCaptureOwnPiece() {
+        Board board = new Board();
+        board.newBoard();
+
+        assertFalse(Board.board[0][2].canMove(1, 1));
+    }
 
 }

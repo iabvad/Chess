@@ -12,6 +12,11 @@ public class Horse extends Piece{
     }
 
     public boolean canMove(int newRow, int newCol){
+        if(Board.board[newRow][newCol] != null){
+            if(Board.board[newRow][newCol].isBlack == this.isBlack){
+                return false;
+            }
+        }
         return (newRow == row - 2 && newCol == col + 1) || (newRow == row - 2 && newCol == col - 1) ||
                 (newRow == row - 1 && newCol == col + 2) || (newRow == row - 1 && newCol == col - 2) ||
                 (newRow == row + 1 && newCol == col + 2) || (newRow == row + 1 && newCol == col - 2) ||
