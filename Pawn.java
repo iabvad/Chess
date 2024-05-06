@@ -11,6 +11,12 @@ public class Pawn extends Piece{
     }
 
     public boolean canMove(int newRow, int newCol) {
+
+        if(Board.board[newRow][newCol] != null){
+            if(Board.board[newRow][newCol].isBlack == this.isBlack){
+                return false;
+            }
+        }
         if (isBlack) {
             if(((newCol == col - 1 && newRow == row - 1) || (newCol == col + 1 && newRow == row - 1)) && (!Board.board[newRow][ newCol].isBlack)){
                 return true;
