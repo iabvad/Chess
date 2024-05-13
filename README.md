@@ -1,4 +1,4 @@
-#Java Chess Game
+**Java Chess Game**
 
 by David Bai and Gavin Lin 
 
