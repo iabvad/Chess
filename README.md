@@ -1,6 +1,15 @@
-# Game of Chess
+# Java Chess Game
 
-Description: Chess is a game between 2 players where the goal is to force the other player into checkmate.  
-One player is black and the other player is white.  The player who plays as white always goes first.  After each move the board is updated within the console, so you can see what is happening while you play the game.
+by David Bai and Gavin Lin 
 
-How To Play: You would need to select the piece that is position on the board.  The board is from a-h and 1-8.  So an example for moving a pawn would be (c2, c4).
+#Features
+
+ - Play chess against another human player.
+ - Basic chess rules including piece movement and capturing.
+ - Visual representation of the chesspieces using Unicode.
+
+#How to Play
+
+1. Start the game by running the GameState.java file.
+2. Follow the on-screen instructions to make moves using algebraic notation (e.g., "e2 e4").
+3. Take turns with your opponent until one player achieves checkmate or a stalemate occurs.
